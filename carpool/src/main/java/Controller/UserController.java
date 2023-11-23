@@ -1,5 +1,6 @@
 package Controller;
 
+import jakarta.servlet.http.HttpSession;
 import model.User;
 import Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,31 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String userId, @RequestParam String password) {
-        // Add logic to check login credentials
-        // Redirect to appropriate page
-        return "redirect:/";
+    public String login(@RequestParam String userId, @RequestParam String password, HttpSession session) {
+
+//        Login Logic
+//        It first checks if the user with the given userId exists in the database.
+//        If the user exists, it compares the provided password with the stored password.
+//        If the passwords match, it redirects to the dashboard.
+//        If the passwords don't match, it sets an error message and redirects to the login page.
+//        If the user doesn't exist, it redirects to the registration page.
+
+        User user = userService.getUserById(userId);
+
+        if(user != null){
+            if(user.getPassword().equals(password)) {
+                return "redirect:/dashboard";
+            }
+            else{
+                session.setAttribute("error", "Incorrect password. Please try again.");
+                return "redirect:/login";
+            }
+        }
+        else {
+            // User doesn't exist, redirect to the registration page
+            return "redirect:/register";
+        }
+
     }
 
     @GetMapping("/register")
@@ -37,22 +59,23 @@ public class UserController {
 
     //Creating new users
     @PostMapping("/register")
-    public String register(@ModelAttribute User user) {
+    public String register(@ModelAttribute User user, HttpSession session) {
         //logic to check if the user already exists
         if(userService.getUserById(user.getUserId()) == null) {
             User userDetails = userService.createUser(user);
 
             if(userDetails != null){
-                System.out.println("Register Successfully");
+
+                session.setAttribute("msg","Register Successfully");
             }
             else{
-                System.out.println("Registration Unsuccessfully");
+                session.setAttribute("msg","Registration Unsuccessfully");
             }
         }
 
         // Save the user and redirect to login page
         else{
-            System.out.println("User with ID: "+user.getUserId()+" already exists");
+            session.setAttribute("msg","User with ID: "+user.getUserId()+" already exists");
         }
 
         return "redirect:/login";
