@@ -17,7 +17,12 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User saveUser(User user) {
+    public User createUser(User user) {
         return userRepository.save(user);
     }
+
+//    @Override
+//    public boolean checkId(String id) {
+//        return userRepository.existsById(id);
+//    }
 }

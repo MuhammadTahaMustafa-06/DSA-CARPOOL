@@ -13,6 +13,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
@@ -31,11 +35,26 @@ public class UserController {
         return "register";
     }
 
+    //Creating new users
     @PostMapping("/register")
     public String register(@ModelAttribute User user) {
-        // Add logic to check if the user already exists
+        //logic to check if the user already exists
+        if(userService.getUserById(user.getUserId()) == null) {
+            User userDetails = userService.createUser(user);
+
+            if(userDetails != null){
+                System.out.println("Register Successfully");
+            }
+            else{
+                System.out.println("Registration Unsuccessfully");
+            }
+        }
+
         // Save the user and redirect to login page
-        userService.saveUser(user);
+        else{
+            System.out.println("User with ID: "+user.getUserId()+" already exists");
+        }
+
         return "redirect:/login";
     }
 }
