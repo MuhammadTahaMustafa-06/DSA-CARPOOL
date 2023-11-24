@@ -1,0 +1,122 @@
+*
+{
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+}
+
+body
+{
+    background-image: url("imgs/peakpx.jpg") ;
+    background-size: cover;
+    background-position: center ;
+    font-family: sans-serif ;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.Menu-Bar
+{
+    background: rgb(255, 165, 0);
+    text-align: center;
+    
+    
+}
+.Menu-Bar ul
+{
+    display: inline-flex;
+    list-style: none;
+    color: rgb(255, 165, 0);
+    
+}
+.Menu-Bar ul li
+{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+
+}
+.Menu-Bar ul li a 
+{
+    text-decoration: none;
+    color: #ffff
+}
+.active, .Menu-Bar ul li:hover
+{
+    background: rgb(255, 152, 43);
+    border-radius: 3px;
+}
+.Menu-Bar .fa
+{
+    margin-right: 8px;
+}
+.Sub-menu-1
+{
+   display: none;
+}
+
+.Menu-Bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.Menu-Bar li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+  
+.Menu-Bar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+  
+.Menu-Bar a i {
+    margin-right: 5px;
+}
+  
+.Sub-menu-1 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(250,58,0) /* #5c5959 */;
+    box-shadow: 0 2px 5px rgba(101, 100, 100, 0.1);
+    z-index: 1;
+}
+  
+.Sub-menu-1 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Menu-Bar ul li:hover .Sub-menu-1{
+   display:block;
+}
+
+/*.Menu-Bar ul li:hover .Sub-menu-1 ul{
+  display: block;
+  margin: 10px;
+}*/
+
+
+/*.Menu-Bar ul li:hover .Sub-menu-1 ul li
+{
+  width: 150px;
+  padding : 10px;
+  border-bottom: 0px dotted #ffff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+} 
+
+  
+.Sub-menu-1 li {
+  display: block;
+}
+

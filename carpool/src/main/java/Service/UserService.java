@@ -6,7 +6,8 @@ public interface UserService {
 
     User getUserById(String userId);
 
-    User saveUser(User user);
+    User createUser(User user);
 
+//    boolean checkId(String id);
     // Add other methods as needed
 }

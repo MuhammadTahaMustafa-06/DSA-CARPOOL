@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Carpool Solution For Every Fastian</title>
-    <link rel="stylesheet" href="templates/styles/demo.css">
+    <link rel="stylesheet" th:href="@{/css/demo.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
@@ -32,7 +32,7 @@
             <img src="https://i.pinimg.com/originals/67/bb/85/67bb8583fb9c4bfcabe030692fdc4190.jpg" class="d-block w-100 carouselimg" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="/imgs/carouselimg2.png" class="d-block w-100 carouselimg" alt="...">
+            <img src="static\img\carouselimg2.png" class="d-block w-100 carouselimg" alt="...">
         </div>
         <div class="carousel-item">
             <img src="https://i.pinimg.com/originals/4d/71/07/4d7107f12e232680644ef5a5a88b4979.jpg" class="d-block w-100 carouselimg" alt="...">
@@ -97,69 +97,65 @@
 
 
 <!-- Login Registration Form -->
-<div class = "wrapper">
-    <!-- <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span> -->
+<div class="wrapper">
 
-    <div class = "form-box login" >
+    <div class="form-box login">
         <h2> Login </h2>
-        <form action = "#" >
-            <div class = "input-box">
-                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                <input type = "Student ID" required>
+        <form th:action="@{/login}" method="post">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text" name="userId" required>
                 <label> Student ID </label>
             </div>
 
-            <div class = "input-box">
-                <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type = "password" required>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input type="password" name="password" required>
                 <label> Password </label>
             </div>
             <div class="remember-forgot">
-                <label><input type = "checkbox">
+                <label><input type="checkbox">
                     remember me </label>
                 <a href="#"> Forgot Password ?</a>
             </div>
-            <button type = "submit" class="btn" style="color:white;">Login</button>
+            <button type="submit" class="btn" style="color:white;">Login</button>
 
             <div class="login-register">
-                <p> Don't have an account ? <a
-                        href="#" class="register-link"> Register </a> </p>
+                <p th:utext="${#strings.contains(#httpServletRequest.requestURI, '/register') ? 'Already have an account ? <a th:href=\"@{/login}\" class=\"login-link\"> Login </a>' : 'Don\'t have an account ? <a th:href=\"@{/register}\" class=\"register-link\"> Register </a>'}"></p>
             </div>
 
         </form>
     </div>
 
-    <div class = "form-box register" >
+    <div class="form-box register">
         <h2> Registration </h2>
-        <form action = "#" >
+        <form th:action="@{/register}" method="post">
 
-            <div class = "input-box">
-                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                <input type = "Username" required>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text" name="username" required>
                 <label> Username </label>
             </div>
 
-            <div class = "input-box">
-                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                <input type = "Student ID" required>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text" name="userId" required>
                 <label> Student ID </label>
             </div>
 
-            <div class = "input-box">
-                <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type = "password" required>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input type="password" name="password" required>
                 <label> Password </label>
             </div>
             <div class="remember-forgot">
-                <label><input type = "checkbox">
-                    I agree to terms & condition  </label>
+                <label><input type="checkbox">
+                    I agree to terms & condition </label>
 
             </div>
-            <button type = "submit" class="btn" style="color:white;">Register</button>
+            <button type="submit" class="btn" style="color:white;">Register</button>
             <div class="login-register">
-                <p> Already have an account ? <a
-                        href="#"
-                        class="login-link "> Login </a> </p>
+                <p> Already have an account ? <a th:href="@{/login}" class="login-link"> Login </a> </p>
             </div>
 
         </form>
@@ -167,8 +163,8 @@
 
 </div>
 
-<script src= "templates/script/script.js" ></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="static/js/script.js"></script>
+<script type="module" th:src="@{/js/ionicons.esm.js}"></script>
+<script nomodule th:src="@{/js/ionicons.js}"></script>
 </body>
 </html>
