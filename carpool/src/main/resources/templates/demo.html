@@ -1,176 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Wbsite with login and registration</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/dist/css/bootstrap.min.css}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="demo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 
 <body>
-   
-    <!-- <header>
-        <h2 class = "Wheels To Go ">Wheels To Go </h2>
-        <nav class = "navigation" >
 
-            <a href="#">home</a>
-            <a href="#">about</a>
-            <a href="#">Services</a>
-            <a href="#">contact</a>
-            <button class = "btnlogin-popup">login</button>
+<!-- <header>
+    <h2 class = "Wheels To Go ">Wheels To Go </h2>
+    <nav class = "navigation" >
 
-        </nav>
-    </header> -->
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">Services</a>
+        <a href="#">contact</a>
+        <button class = "btnlogin-popup">login</button>
 
-
+    </nav>
+</header> -->
 
 
-    <!-- carousel -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+
+
+<!-- carousel -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
             <img src="https://i.pinimg.com/originals/67/bb/85/67bb8583fb9c4bfcabe030692fdc4190.jpg" class="d-block w-100 carouselimg" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="/imgs/carouselimg2.png" class="d-block w-100 carouselimg" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://i.pinimg.com/originals/4d/71/07/4d7107f12e232680644ef5a5a88b4979.jpg" class="d-block w-100 carouselimg" alt="...">
-          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <div class="carousel-item">
+            <img src="/imgs/carouselimg2.png" class="d-block w-100 carouselimg" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i.pinimg.com/originals/4d/71/07/4d7107f12e232680644ef5a5a88b4979.jpg" class="d-block w-100 carouselimg" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 
 
-      <!-- navbar -->
-      <header>
-        <nav class="navbar navbar-expand-lg" style="color: white;">
-            <div class="container-fluid" style="color: white;">
-              <a class="navbar-brand" style="color: white;" href="#">Wheels To Go</a>
-              <button style="color: white; border-color:white; " class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<!-- navbar -->
+<header>
+    <nav class="navbar navbar-expand-lg" style="color: white;">
+        <div class="container-fluid" style="color: white;">
+            <a class="navbar-brand" style="color: white;" href="#">Wheels To Go</a>
+            <button style="color: white; border-color:white; " class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon" fill="white" style="color: white;"></span>  -->
                 <svg class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                  </svg>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                </svg>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-                  </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white;">About</a>
-                  </li> -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white;">Services</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white;">Contact</a>
-                  </li>
-                  <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                      Dropdown link
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="#" style="color: white;">About</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">Contact</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                        Dropdown link
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li> -->
                 </ul>
-              </div>
             </div>
-          </nav>
-          </header>
-      
+        </div>
+    </nav>
+</header>
 
 
 
 
 
-    <!-- Login Registration Form -->
-    <div class = "wrapper">
-        <!-- <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span> -->
-        
-        <div class = "form-box login" >
-            <h2> Login </h2>
-            <form action = "#" >  
-                <div class = "input-box">
-                    <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                    <input type = "Student ID" required>
-                    <label> Student ID </label>
-                </div>
 
-                <div class = "input-box">
-                    <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <input type = "password" required>
-                    <label> Password </label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type = "checkbox">
+<!-- Login Registration Form -->
+<div class = "wrapper">
+    <!-- <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span> -->
+
+    <div class = "form-box login" >
+        <h2> Login </h2>
+        <form th:action="@{/login}" method="post">
+            <div class = "input-box">
+                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text" th:field="${user.studentId}" required>
+                <!--<input type = "Student ID" required>-->
+                <label> Student ID </label>
+            </div>
+
+
+
+
+            <div class = "input-box">
+                <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input type = "password" required>
+                <label> Password </label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type = "checkbox">
                     remember me </label>
-                    <a href="#"> Forgot Password ?</a>
-                </div>
-                <button type = "submit" class="btn" style="color:white;">Login</button>
-                
-                <div class="login-register">
-                    <p> Don't have an account ? <a 
-                    href="#" class="register-link"> Register </a> </p>
-                </div>
-                
-            </form>
-        </div>
-         
-        <div class = "form-box register" >
-            <h2> Registration </h2>
-            <form action = "#" >  
-                
-                <div class = "input-box">
-                    <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                    <input type = "Username" required>
-                    <label> Username </label>
-                </div>
-                
-                <div class = "input-box">
-                    <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
-                    <input type = "Student ID" required>
-                    <label> Student ID </label>
-                </div>
+                <a href="#"> Forgot Password ?</a>
+            </div>
+            <button type = "submit" class="btn" style="color:white;">Login</button>
 
-                <div class = "input-box">
-                    <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <input type = "password" required>
-                    <label> Password </label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type = "checkbox">
-                    I agree to terms & condition  </label>
-                    
-                </div>
-                <button type = "submit" class="btn" style="color:white;">Register</button>
-                <div class="login-register">
-                    <p> Already have an account ? <a 
-                    href="#" 
-                    class="login-link "> Login </a> </p>
-                </div>
-                
-            </form>
-        </div>
-    
+            <div class="login-register">
+                <p> Don't have an account ? <a
+                        href="#" class="register-link"> Register </a> </p>
+            </div>
+
+        </form>
     </div>
-    
-    <script src= "script_testing.js" ></script> 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <div class = "form-box register" >
+        <h2> Registration </h2>
+        <form action = "#" >
+
+            <div class = "input-box">
+                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type = "Username" required>
+                <label> Username </label>
+            </div>
+
+            <div class = "input-box">
+                <span class = "icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type = "Student ID" required>
+                <label> Student ID </label>
+            </div>
+
+            <div class = "input-box">
+                <span class = "icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input type = "password" required>
+                <label> Password </label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type = "checkbox">
+                    I agree to terms & condition  </label>
+
+            </div>
+            <button type = "submit" class="btn" style="color:white;">Register</button>
+            <div class="login-register">
+                <p> Already have an account ? <a
+                        href="#"
+                        class="login-link "> Login </a> </p>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<script src= "script_testing.js" ></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.2/dist/js/bootstrap.bundle.min.js}"></script>
+<script th:type="module" th:src="@{/webjars/ionicons/7.1.0/dist/ionicons/ionicons.esm.js}"></script>
+<script th:nomodule th:src="@{/webjars/ionicons/7.1.0/dist/ionicons/ionicons.js}"></script>
+</body>
 </body>
 </html> 
