@@ -1,0 +1,83 @@
+<!-- create_ride.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ride</title>
+    <link rel="stylesheet" href="create_ride.css">
+    <!-- Include any additional stylesheets or scripts if needed -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <div class="Menu-Bar">
+        <ul>
+            <li class="active"><a href="demo.html"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></i></li>
+            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>My profile</a>
+                <div class="Sub-menu-1">
+                    <ul>
+                        <li><a href="#">Edit</a></li>
+                        
+                    </ul>
+                </div>
+            
+            </li>
+            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i>Find Rides</a></li>
+            <li><a href="create_ride.html"><i class="fa fa-plus" aria-hidden="true"></i>Create Ride</a></li>
+            <li><a href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i>My Location</a></li>
+            <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>Pricing</a></li>
+            <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i>Help</a></li>
+        </ul>
+    </div>
+
+    <main style="width:100%;">
+        <!-- Form to capture ride details -->
+        <form style="text-align:center; margin:auto;">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411"/>
+                  </svg></span>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Start Point">
+                  <label for="floatingInputGroup1">Start Point</label>
+                </div>
+              </div>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                  </svg></span>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInputGroup1" placeholder="End Point">
+                  <label for="floatingInputGroup1">End Point</label>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                  </svg></span>
+                <div class="form-floating">
+                  <input type="datetime-local" class="form-control" id="floatingInputGroup1" placeholder="Start Date & Time">
+                  <label for="floatingInputGroup1">Start Date & Time</label>
+                </div>
+              </div>
+
+            <!-- Additional form elements can be added as needed -->
+
+            <button type="submit">Create Ride</button>
+        </form>
+
+    
+    </main>
+
+</body>
+
+</html>
