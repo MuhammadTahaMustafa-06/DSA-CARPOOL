@@ -12,7 +12,7 @@ public class UserDAO {
     private final EntityManager entityManager;
 
     public UserDAO() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("your_persistence_unit_name");
+        entityManagerFactory = Persistence.createEntityManagerFactory("pom.xml");
         entityManager = entityManagerFactory.createEntityManager();
     }
 

@@ -13,7 +13,7 @@ public class RiderDAO {
     private final EntityManager entityManager;
 
     public RiderDAO() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("your_persistence_unit_name");
+        entityManagerFactory = Persistence.createEntityManagerFactory("pom.xml");
         entityManager = entityManagerFactory.createEntityManager();
     }
 

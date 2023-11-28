@@ -37,6 +37,7 @@ public class UserController {
 
         if(user != null){
             if(user.getPassword().equals(password)) {
+                session.setAttribute("user", user);
                 return "redirect:/dashboard";
             }
             else{
@@ -49,6 +50,20 @@ public class UserController {
             return "redirect:/register";
         }
 
+    }
+
+    @GetMapping("/dashboard")
+    public String showDashboard(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+
+        if (user != null) {
+            // You can now use the 'user' object in the dashboard
+            model.addAttribute("user", user);
+            return "dashboard";
+        } else {
+            // Redirect to login if the user is not authenticated
+            return "redirect:/login";
+        }
     }
 
     @GetMapping("/register")
