@@ -1,13 +1,33 @@
 package Service;
-
+import Repository.UserRepository;
 import model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface UserService {
+import java.util.Optional;
 
-    User getUserById(String userId);
+@Service
+public class UserService {
 
-    User createUser(User user);
+    private final UserRepository userRepository;
 
-//    boolean checkId(String id);
-    // Add other methods as needed
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User getUserById(String userId) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        return optionalUser.orElse(null);
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(String userId) {
+        userRepository.deleteById(userId);
+    }
+
+    // Other methods utilizing UserRepository as needed
 }

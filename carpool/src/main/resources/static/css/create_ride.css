@@ -1,7 +1,5 @@
-/* create_ride_styles.css */
-
 body {
-    background: url("imgs/peakpx.jpg");
+    background: url("/static/img/peakpx.jpg");
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat;
@@ -67,15 +65,15 @@ button:hover {
 {
     background: rgb(255, 165, 0);
     text-align: center;
-    
-    
+
+
 }
 .Menu-Bar ul
 {
     display: inline-flex;
     list-style: none;
     color: rgb(255, 165, 0);
-    
+
 }
 .Menu-Bar ul li
 {
@@ -84,7 +82,7 @@ button:hover {
     padding: 15px;
 
 }
-.Menu-Bar ul li a 
+.Menu-Bar ul li a
 {
     text-decoration: none;
     color: #ffff
@@ -100,7 +98,7 @@ button:hover {
 }
 .Sub-menu-1
 {
-   display: none;
+    display: none;
 }
 
 .Menu-Bar ul {
@@ -108,23 +106,23 @@ button:hover {
     padding: 0;
     margin: 0;
 }
-  
+
 .Menu-Bar li {
     display: inline-block;
     margin-right: 20px;
     position: relative;
 }
-  
+
 .Menu-Bar a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
 }
-  
+
 .Menu-Bar a i {
     margin-right: 5px;
 }
-  
+
 .Sub-menu-1 {
     display: none;
     position: absolute;
@@ -134,13 +132,13 @@ button:hover {
     box-shadow: 0 2px 5px rgba(101, 100, 100, 0.1);
     z-index: 1;
 }
-  
+
 .Sub-menu-1 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .Menu-Bar ul li:hover .Sub-menu-1{
-   display:block;
+    display:block;
 }

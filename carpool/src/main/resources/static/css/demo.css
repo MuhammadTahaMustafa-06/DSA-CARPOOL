@@ -33,7 +33,7 @@ header{
     top : 0 ;
     left : 0 ;
     /* padding: 20px 100px; */
-   
+
     display: flex;
     justify-content:  space-between;
     align-items: center;
@@ -52,7 +52,7 @@ header{
 }
 .container-fluid{
     background: transparent;
-    
+
 }
 #carouselExampleFade{
     position:absolute;
@@ -131,7 +131,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
+    overflow: hidden;
     transition: height .2s ease;
     z-index: 10;
 }
@@ -149,7 +149,7 @@ header{
 .wrapper .form-box.login {
     transition: transform .18s ease;
     transform: translateX(0);
-   
+
 }
 
 .wrapper.active .form-box.login {
@@ -161,7 +161,7 @@ header{
     position: absolute;
     transition: none;
     transform: translateX(400px);
-} 
+}
 
 .wrapper.active .form-box.register {
     transition: transform .18s ease;
@@ -187,8 +187,8 @@ header{
 }
 
 .form-box h2 {
-     font-size: 2em;
-     color:  white;
+    font-size: 2em;
+    color:  white;
     text-align: center;
 }
 
@@ -201,7 +201,7 @@ header{
 }
 
 .input-box label {
-    
+
     position: absolute;
     top: 50%;
     left: 5px;
@@ -294,5 +294,4 @@ header{
 
 .login-register p a:hover{
     text-decoration: underline;
-} 
-
+}

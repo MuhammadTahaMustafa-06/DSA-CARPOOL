@@ -1,6 +1,6 @@
 -- Create User table
 CREATE TABLE User (
-    ID VARCHAR(20) PRIMARY KEY,
+    UserID VARCHAR(20) PRIMARY KEY, -- Added UserID as the primary key
     Name VARCHAR(255) NOT NULL,
     Phone VARCHAR(15) NOT NULL,
     Password VARCHAR(255) NOT NULL
@@ -8,20 +8,22 @@ CREATE TABLE User (
 
 -- Create Rider table
 CREATE TABLE Rider (
-    UserID VARCHAR(20) PRIMARY KEY,
+    RiderID INT PRIMARY KEY AUTO_INCREMENT, -- Added RiderID as the primary key
+    UserID VARCHAR(20) UNIQUE NOT NULL, -- Added UserID in Rider table
     PickupLocation VARCHAR(255) NOT NULL,
     DropoffLocation VARCHAR(255) NOT NULL,
     Time DATETIME NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES User(ID)
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
 -- Create Driver table
 CREATE TABLE Driver (
-    UserID VARCHAR(20) PRIMARY KEY,
+    DriverID INT PRIMARY KEY AUTO_INCREMENT, -- Added DriverID as the primary key
+    UserID VARCHAR(20) UNIQUE NOT NULL, -- Added UserID in Driver table
     Startpoint VARCHAR(255) NOT NULL,
     Endpoint VARCHAR(255) NOT NULL,
     CarModel VARCHAR(255) NOT NULL,
     CarColor VARCHAR(255) NOT NULL,
     CarNumberPlate VARCHAR(15) NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES User(ID)
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
