@@ -67,6 +67,52 @@ public class UserController {
         return "redirect:/";
     }
 
+    @PostMapping("/reset-password")
+    public String resetPassword(
+            @RequestParam String userID,
+            @RequestParam String newPassword,
+            HttpSession session
+    ) {
+        // Update the password in the database
+        User user = userService.getUserById(userID);
+
+        if (user != null) {
+            user.setPassword(newPassword);
+            userService.saveUser(user);
+            session.setAttribute("msg", "Password reset successfully. Please log in with your new password.");
+            return "redirect:/login";
+        } else {
+            // User not found, show an error message
+            session.setAttribute("error", "User not found.");
+            return "redirect:/login";
+        }
+    }
+    @GetMapping("/forgot-password")
+    public String showForgotPasswordForm() {
+        return "forgot_password";
+    }
+
+    @PostMapping("/forgot-password")
+    public String forgotPassword(
+            @RequestParam String fullName,
+            @RequestParam String userID,
+            @RequestParam String phone,
+            Model model
+    ) {
+        // Check if the provided information is correct
+        User user = userService.getUserById(userID);
+
+        if (user != null && user.getName().equals(fullName) && user.getPhone().equals(phone)) {
+            // Information is correct, proceed to the next step (e.g., enter a new password)
+            model.addAttribute("userID", userID);
+            return "reset_password";
+        } else {
+            // Information is incorrect, show an error message
+            model.addAttribute("error", "Invalid information. Please try again.");
+            return "forgot_password";
+        }
+    }
+
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
