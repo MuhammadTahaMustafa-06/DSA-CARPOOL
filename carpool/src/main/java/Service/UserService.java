@@ -1,5 +1,6 @@
 package Service;
 import Repository.UserRepository;
+import jakarta.transaction.Transactional;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(String userId) {
-        userRepository.deleteById(userId);
+
+    @Transactional
+    public void deleteUser(String userID) {
+        userRepository.deleteByUserID(userID);
     }
 
-    // Other methods utilizing UserRepository as needed
 }

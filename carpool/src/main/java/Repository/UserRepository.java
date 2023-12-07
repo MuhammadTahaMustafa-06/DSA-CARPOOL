@@ -26,15 +26,10 @@ public interface UserRepository extends JpaRepository<User, String> {
     User getOne(String ID);
     boolean existsById(String UserID);
     long count();
-    //User update
-    @Transactional
-    @Modifying
-    @Query("UPDATE User u SET u.name = :name, u.userID = :userID, u.phone = :phone ,u.password = :password  WHERE u.userID = :userId")
-    void updateUserDetailsById(Long userId, String name, String userID, String phone, String password);
-    // Delete methods
-    void deleteById(String ID); // Change Long to String
+    //User delete
     void delete(User entity);
     void deleteAll();
     void deleteAllById(Iterable<? extends String> IDs);
     void deleteAll(Iterable<? extends User> entities);
+    void deleteByUserID(String userID);
 }

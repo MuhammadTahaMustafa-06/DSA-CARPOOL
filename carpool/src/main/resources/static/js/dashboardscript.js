@@ -92,3 +92,10 @@ function getCurrentLocationAndSearch() {
         alert("Geolocation is not supported by your browser.");
     }
 }
+function showDeleteConfirmation() {
+    document.getElementById('deleteModal').classList.remove('hidden');
+}
+
+function hideDeleteConfirmation() {
+    document.getElementById('deleteModal').classList.add('hidden');
+}

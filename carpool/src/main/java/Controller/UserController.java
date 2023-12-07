@@ -25,7 +25,7 @@ public class UserController {
         return "index";
     }
 
-//    @PostMapping("/login")
+    //    @PostMapping("/login")
 //    public String login(@RequestParam String userId, @RequestParam String password, HttpSession session) {
 //        User user = userService.getUserById(userId);
 //
@@ -78,8 +78,9 @@ public class UserController {
             return "redirect:/login";
         }
     }
+
     @PostMapping("/update")
-    public String UpdateDetails( @RequestParam String name, @RequestParam String userID, @RequestParam String phone, @RequestParam String password ){
+    public String UpdateDetails(@RequestParam String name, @RequestParam String userID, @RequestParam String phone, @RequestParam String password) {
         User user = userService.getUserById(userID);
         if (user != null) {
             user.setName(name);
@@ -92,5 +93,11 @@ public class UserController {
         return "redirect:/dashboard";
     }
 
-
+    @PostMapping("/delete")
+    public String deleteDetails(@RequestParam("userID") String userID) {
+        if (userID!=null) {
+            userService.deleteUser(userID);
+        }
+        return "redirect:/";
+    }
 }
